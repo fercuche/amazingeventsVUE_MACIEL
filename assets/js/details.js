@@ -25,8 +25,6 @@ createApp({
   methods: {},
 }).mount("#app");
 
-// import { getDataPages } from "./functions.js";
-
 // let events
 // let eventDetail
 // const queryString = location.search
