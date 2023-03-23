@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../assets/styles/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <title>Amazing Events</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-expand-md nav-details">
+      <div class="container-fluid">
+        <img
+          class="navbar-brand"
+          src="../assets/img/Logo_Amazing_Events.png"
+          alt="amazing events logo"
+          width="200"
+        />
+        <button
+          class="navbar-toggler ms-auto custom-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar-items"
+          aria-controls="navbarNavAltMarkup"
+          aria-label="navbar-items"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbar-items"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="/index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./upcoming_events.html"
+                >Upcoming Events</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./past_events.html">Past Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Stats</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="return-button">
+      <div class="btn" id="returnButton">
+        <i class="bi bi-arrow-left fs-1 text-white"></i>
+      </div>
+    </div>
+
+    <main>
+      <div id="app">
+        <div
+          class="container-fluid mb-5 d-flex flex-wrap justify-content-center align-content-center details"
+          id="main-details"
+        >
+    <template v-if="eventDetail">
+        <div class="card flex-lg-row flex-xl-row mx-5 rounded-2 overflow-hidden align-items-center" id="details">
+                 <img :src="eventDetail.image" class="details-img" alt="...">
+                 <div class="card-body">
+                 <h2 class="card-title text-center">{{eventDetail.name}}</h2>
+                 <ul class="card-text list-unstyled">
+                     <li class="text-center fst-italic">{{eventDetail.date}}</li>
+                     <li class="badge fs-medium bg-info m-1">{{eventDetail.category}}</li>
+                     <li class="text-start p-1">{{eventDetail.description}}</li>
+                     <li class="m-1"><i class="bi bi-geo-alt-fill text-danger"></i>{{eventDetail.place}}</li>
+                     <li class="m-1"><i class="bi bi-people-fill text-primary"></i> Capacity {{eventDetail.capacity}}</li>
+                     <li class="h3 fw-bolder my-2 text-center">${{eventDetail.price}}</li>
+                 </ul>
+               </div>
+              </div>
+    </template></div>
+      </div>
+    </main>
+
+    <footer class="d-flex py-2 justify-content-between">
+      <div class="social d-flex align-items-center">
+        <img
+          class="social-icon mx-3"
+          src="../assets/img/insta.png"
+          alt="instagram logo"
+        />
+        <img
+          class="social-icon mx-3"
+          src="../assets/img/fb.png"
+          alt="facebook logo"
+        />
+        <img
+          class="social-icon mx-3"
+          src="/assets/img/icone-logo-whatsapp-vert.png"
+          alt="whatsapp logo"
+        />
+      </div>
+      <h5
+        class="d-flex fw-bolder text-footer m-0 px-3 align-items-center text-white"
+      >
+        FE06[TN]
+      </h5>
+    </footer>
+
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script type="module" src="../assets/js/details.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

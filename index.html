@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="shortcut icon"
+      href="../assets/img/favicon.ico"
+      type="image/x-icon"
+    />
+    <link rel="stylesheet" href="../assets/styles/style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <title>Amazing Events</title>
+  </head>
+
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-expand-md nav-details">
+      <div class="container-fluid">
+        <img
+          class="navbar-brand"
+          src="./assets/img/Logo_Amazing_Events.png"
+          alt="amazing events logo"
+          width="200"
+        />
+        <button
+          class="navbar-toggler ms-auto custom-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbar-items"
+          aria-controls="navbarNavAltMarkup"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-end"
+          id="navbar-items"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/upcoming_events.html"
+                >Upcoming Events</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/past_events.html"
+                >Past Events</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/contact.html">Contact</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="./pages/stats.html">Stats</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <header>
+      <div class="carousel slide mt-4">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <h1 class="text-center p-2 bg-danger text-white">Home</h1>
+          </div>
+          <div class="carousel-item">
+            <h1 class="text-center p-2 bg-danger text-white">
+              Upcoming Events
+            </h1>
+          </div>
+          <div class="carousel-item">
+            <h1 class="text-center p-2 bg-danger text-white">Past Events</h1>
+          </div>
+          <div class="carousel-item">
+            <h1 class="text-center p-2 bg-danger text-white">Contact</h1>
+          </div>
+          <div class="carousel-item">
+            <h1 class="text-center p-2 bg-danger text-white">Stats</h1>
+          </div>
+        </div>
+        <a
+          href="./pages/stats.html"
+          class="carousel-control-prev"
+          role="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </a>
+        <a
+          href="./pages/upcoming_events.html"
+          class="carousel-control-next"
+          role="button"
+          data-bs-target="#carouselExample"
+          data-bs-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </a>
+      </div>
+    </header>
+
+    <main>
+      <div id="app">
+        <div
+          class="d-flex justify-content-between align-items-center px-2 mx-5 search-box"
+        >
+          <div class="form-check" id="category-checkbox">
+            <template v-for="category of categories">
+              <div class="form-check form-check-inline">
+                <label class="form-check-label category-label"
+                  >{{category}}
+                  <input
+                    class="form-check-input"
+                    type="checkbox"
+                    v-on:change="filter"
+                    v-model="checked"
+                    :id="category"
+                    :value="category"
+                /></label>
+              </div>
+            </template>
+          </div>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              v-on:keyup="filter"
+              v-model="searchValue"
+              placeholder="Search"
+              aria-label="Search"
+              id="search-box"
+            />
+          </form>
+        </div>
+
+        <div
+          class="d-flex flex-xl-row flex-lg-row flex-md-column my-5 mx-4 gap-md-3 mx-md-5 cards flex-lg-wrap justify-content-center"
+          id="cards"
+        >
+          <template v-if="filteredEvents.length > 0" v-for="event of filteredEvents">
+            <div class="card border-0 mx-1 mt-3 rounded-1 overflow-hidden">
+              <img
+                v-bind:src="event.image"
+                class="card-img-top"
+                alt="card image"
+              />
+              <div class="card-body">
+                <h5 class="card-title">{{event.name}}</h5>
+                <p class="badge fs-medium bg-info m-0">{{event.category}}</p>
+                <p class="fw-bold mb-2 mt-2">Price ${{event.price}}</p>
+                <div class="price d-flex justify-content-center">
+                  <a
+                    class="btn btn-danger"
+                    :href="'/pages/details.html?id='+ event._id"
+                    >Read more</a
+                  >
+                </div>
+              </div>
+            </div>
+          </template>
+
+          <div v-else>
+            <div class="card-body">
+              <h5 class="card-title text-white text-center">Nothing found</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="d-flex py-2 mt-3 justify-content-between">
+      <div class="social d-flex align-items-center">
+        <img
+          class="social-icon mx-3"
+          src="./assets/img/insta.png"
+          alt="instagram logo"
+        />
+        <img
+          class="social-icon mx-3"
+          src="./assets/img/fb.png"
+          alt="facebook logo"
+        />
+        <img
+          class="social-icon mx-3"
+          src="./assets/img/icone-logo-whatsapp-vert.png"
+          alt="whatsapp logo"
+        />
+      </div>
+      <h5
+        class="d-flex fw-bolder text-footer m-0 px-3 align-items-center text-white"
+      >
+        FE06[TN]
+      </h5>
+    </footer>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="/assets/js/index.js"></script>
+  </body>
+</html>

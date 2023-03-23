@@ -1,0 +1,270 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Roboto, Oxygen, sans-serif
+}
+
+body {
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: black !important;
+}
+
+body::-webkit-scrollbar {
+    display: none;
+  }
+
+
+/*Navbar*/
+
+.navbar {
+    background-color: black !important;
+    box-shadow: 0px 1px 2px rgba(207, 3, 99,0.5), 
+    0px 2px 4px rgba(207, 3, 99,0.5), 
+    0px 4px 8px rgba(207, 3, 99,0.5), 
+    0px 8px 16px rgba(207, 3, 99,0.5);
+}
+
+.nav-link,
+.form-check-label {
+    color: white !important;
+}
+
+.nav-link:hover {
+    color: #D60367 !important;
+}
+
+.custom-toggler .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgb(217, 3, 104)' stroke-linecap='square' stroke-miterlimit='2' stroke-width='4' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/*Hero*/
+
+/*Main*/
+
+main {
+    min-height: 87%;
+}
+
+/*Search Bar*/
+
+/*Cards*/
+
+.card {
+    width: 30%;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 15vw;
+    object-fit: cover;
+}
+
+.card-title {
+    font-weight: bolder;
+}
+
+/*Details Card*/
+
+.nav-details{
+    box-shadow: 0px 1px 2px rgba(207, 3, 99,0.5), 
+    0px 2px 4px rgba(207, 3, 99,0.5), 
+    0px 4px 8px rgba(207, 3, 99,0.5), 
+    0px 8px 16px rgba(207, 3, 99,0.5);
+}
+
+.details {
+    min-height: 87% !important;
+}
+
+#details {
+    width: 70%;
+}
+
+.details-img {
+        width: 50%;
+        object-fit: cover;
+        height: 60vh
+    }
+
+/*Contact*/
+
+.contact{
+    width: 60vw;
+}
+
+/*Footer*/
+
+footer {
+    background-color: black;
+    box-shadow: 0px -1px 2px rgba(207, 3, 99,0.5), 
+    0px -2px 4px rgba(207, 3, 99,0.5), 
+    0px -4px 8px rgba(207, 3, 99,0.5), 
+    0px -8px 16px rgba(207, 3, 99,0.5);
+}
+
+
+.social-icon {
+    width: 30px;
+}
+
+
+/* Media Queries*/
+
+@media screen and (max-width: 1440px) {
+
+    main {
+        min-height: 76vh !important;
+    }
+
+    .details {
+        min-height: 79% !important;
+    }
+}
+
+
+@media screen and (max-width: 1024px) {
+
+    .details {
+        min-height: 74% !important;
+    }
+
+    .details-img {
+        width: 50%;
+        object-fit: cover;
+        height: 60vh
+    }
+
+    main {
+        min-height: 73vh !important;
+    }
+    
+}
+
+@media screen and (max-width: 991px) {
+
+    #cards{
+        display: grid !important;
+        grid-template-columns: repeat(2, 1fr);
+        justify-items: stretch;
+    }
+
+    .card{
+        width: auto;
+    }
+
+    .details {
+        min-height: 81% !important;
+    }
+
+    .details-img {
+        width: 100%;
+        object-fit: cover;
+        height: 50vh
+    }
+
+    main {
+        min-height: 73vh !important;
+    }
+    
+    
+}
+
+@media screen and (max-width:768px) {
+
+    #cards{
+        display: flex !important;
+    }
+    .details {
+        min-height: auto !important;
+    }
+
+    .details-img {
+        width: 100%;
+        object-fit: cover;
+        height: 60vh
+    }
+
+    main {
+        height: auto !important;
+    }
+
+    footer {
+        position: relative !important;
+    }
+
+    
+    .card-img-top {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+    .card {
+        width: 60vw !important;
+    }
+
+    .cards{
+        flex-direction: column !important;
+        flex-wrap: wrap !important;
+        align-content: center !important;
+        gap: 1rem;
+        height: auto;
+    }
+
+    .search-box{
+        flex-direction: column !important;
+        gap: 1rem;
+        height: auto;
+    }
+
+    .form-check {
+        padding-left: 2.5em !important;
+    }
+
+    .details {
+        width: 70vw !important;
+    }
+    .details>.card{
+        margin-left: 0% !important;
+        margin-right: 0% !important;
+    }
+}
+
+@media screen and (max-width:426px) {
+
+    .details {
+        min-height: auto !important;
+    }
+
+    #details {
+        width: 80vw !important;
+        margin-left: 0rem !important;
+        margin-right: 0rem !important;
+
+    }
+    .details-img {
+        width: 100%;
+        object-fit: cover;
+        height: 30vh;
+    }
+
+    .card {
+        width: 80vw !important;
+    }
+
+    .cards, .search-box{
+        flex-direction: column !important;
+        gap: 1rem;
+        height: auto;
+    }
+
+    .form-check {
+        padding-left: 2.5em !important;
+    }
+
+    .contact {
+        width: 80vw !important;
+    }
+}
